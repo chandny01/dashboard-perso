@@ -1,0 +1,723 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #03050b;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ESPACE
+========================================================= */
+
+.space {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -10;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #11182c 0%,
+            #080c18 35%,
+            #03050b 75%
+        );
+}
+
+
+/* =========================================================
+   ÉTOILES
+========================================================= */
+
+.stars,
+.stars-2,
+.stars-3 {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.stars {
+    opacity: .9;
+
+    background-image:
+        radial-gradient(circle, #fff 0, #fff 1.5px, rgba(255,255,255,.25) 2.5px, transparent 3.5px),
+        radial-gradient(circle, rgba(255,255,255,.7) 0, rgba(255,255,255,.7) 1.2px, transparent 2.5px);
+
+    background-size:
+        120px 120px,
+        190px 190px;
+
+    background-position:
+        10px 20px,
+        80px 60px;
+}
+
+.stars-2 {
+    opacity: .75;
+
+    background-image:
+        radial-gradient(circle, #fff 0, #fff 2.2px, rgba(200,220,255,.3) 3.5px, transparent 5px);
+
+    background-size: 250px 250px;
+    background-position: 40px 100px;
+}
+
+.stars-3 {
+    opacity: .6;
+
+    background-image:
+        radial-gradient(circle, #fff 0, #fff 3px, rgba(200,220,255,.25) 4.5px, transparent 7px);
+
+    background-size: 320px 320px;
+    background-position: 100px 20px;
+}
+
+
+/* =========================================================
+   LUMIÈRE CENTRALE
+========================================================= */
+
+.ambient-light {
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70, 100, 180, .12),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: relative;
+
+    text-align: center;
+
+    padding-top: 70px;
+
+    z-index: 5;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,.45);
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 62px);
+
+    font-weight: 300;
+
+    letter-spacing: -2px;
+
+    color: rgba(255,255,255,.94);
+}
+
+header p {
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    font-weight: 300;
+
+    letter-spacing: .4px;
+
+    color: rgba(255,255,255,.42);
+}
+
+
+/* =========================================================
+   UNIVERS
+========================================================= */
+
+.universe {
+    position: relative;
+
+    width: min(1100px, 90vw);
+    height: 650px;
+
+    margin: 20px auto 0;
+}
+
+
+/* =========================================================
+   PLANÈTES
+========================================================= */
+
+.planet-wrapper {
+    position: absolute;
+
+    display: block;
+
+    width: 170px;
+
+    text-decoration: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        z-index .3s;
+}
+
+
+/* positions */
+
+.planet-1 {
+    left: 5%;
+    top: 25%;
+}
+
+.planet-2 {
+    left: 29%;
+    top: 5%;
+}
+
+.planet-3 {
+    right: 8%;
+    top: 17%;
+}
+
+.planet-4 {
+    left: 14%;
+    bottom: 8%;
+}
+
+.planet-5 {
+    left: 45%;
+    top: 38%;
+}
+
+.planet-6 {
+    right: 20%;
+    bottom: 5%;
+}
+
+.planet-7 {
+    right: 2%;
+    bottom: 30%;
+}
+
+
+/* =========================================================
+   PLANÈTES
+========================================================= */
+
+.planet {
+    position: relative;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        filter .6s ease;
+
+    box-shadow:
+        inset -25px -25px 45px rgba(0,0,0,.55),
+        inset 12px 10px 25px rgba(255,255,255,.15),
+        0 15px 45px rgba(0,0,0,.5);
+}
+
+
+/* lumière sur les planètes */
+
+.planet::before {
+    content: "";
+
+    position: absolute;
+
+    width: 60%;
+    height: 60%;
+
+    left: 12%;
+    top: 8%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.35),
+            transparent 65%
+        );
+
+    filter: blur(7px);
+
+    opacity: .7;
+}
+
+
+/* texture */
+
+.planet::after {
+    content: "";
+
+    position: absolute;
+    inset: -30%;
+
+    background:
+        radial-gradient(
+            ellipse at 30% 35%,
+            rgba(255,255,255,.15),
+            transparent 25%
+        ),
+        radial-gradient(
+            ellipse at 70% 65%,
+            rgba(0,0,0,.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 45% 80%,
+            rgba(255,255,255,.08),
+            transparent 20%
+        );
+
+    opacity: .8;
+
+    transform: rotate(20deg);
+}
+
+
+/* =========================================================
+   COULEURS
+========================================================= */
+
+.planet-blue {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #6e9ed0,
+            #31517d 38%,
+            #111c31 75%
+        );
+}
+
+.planet-purple {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #9c83c5,
+            #5a417f 40%,
+            #1a1028 75%
+        );
+}
+
+.planet-dark {
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #71767e,
+            #343942 38%,
+            #101217 75%
+        );
+}
+
+.planet-green {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #6d9e8b,
+            #315c51 40%,
+            #101c1b 75%
+        );
+}
+
+.planet-orange {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #d49b70,
+            #7c4c35 40%,
+            #241511 75%
+        );
+}
+
+.planet-red {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #b87578,
+            #703b42 40%,
+            #211012 75%
+        );
+}
+
+.planet-cyan {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #73aab0,
+            #35666b 40%,
+            #102021 75%
+        );
+}
+
+
+/* =========================================================
+   INTERACTION
+========================================================= */
+
+.planet-wrapper:hover {
+    transform: translateY(-12px) scale(1.04);
+    z-index: 20;
+}
+
+.planet-wrapper:hover .planet {
+    transform: scale(1.08);
+
+    filter:
+        brightness(1.15)
+        saturate(1.1);
+
+    box-shadow:
+        inset -25px -25px 45px rgba(0,0,0,.45),
+        inset 12px 10px 25px rgba(255,255,255,.2),
+        0 20px 60px rgba(100,130,200,.18);
+}
+
+
+/* =========================================================
+   TEXTE SOUS LES PLANÈTES
+========================================================= */
+
+.planet-label {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+    padding: 0 22px;
+
+    text-align: center;
+    pointer-events: none;
+}
+
+.planet-label span {
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.6);
+
+    text-shadow: 0 1px 6px rgba(0,0,0,.6);
+}
+
+.planet-label strong {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    letter-spacing: 1.5px;
+
+    color: #fff;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,.7);
+}
+
+
+/* =========================================================
+   FLOTTEMENT
+   On anime la propriété "translate" (et non "transform")
+   pour ne pas écraser l'effet de survol existant.
+========================================================= */
+
+@keyframes float-a {
+    0%, 100% { translate: 0 0; }
+    25%      { translate: 28px -40px; }
+    50%      { translate: -18px -70px; }
+    75%      { translate: -40px -28px; }
+}
+
+@keyframes float-b {
+    0%, 100% { translate: 0 0; }
+    33%      { translate: -40px -42px; }
+    66%      { translate: 34px -66px; }
+}
+
+@keyframes float-c {
+    0%, 100% { translate: 0 0; }
+    20%      { translate: 24px -30px; }
+    50%      { translate: 46px -62px; }
+    80%      { translate: -24px -40px; }
+}
+
+.planet-wrapper {
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* durées et délais différents : chaque planète a son propre rythme */
+.planet-1 { animation-name: float-a; animation-duration: 7s;    animation-delay: 0s;    }
+.planet-2 { animation-name: float-b; animation-duration: 8.5s;   animation-delay: -3s;   }
+.planet-3 { animation-name: float-c; animation-duration: 8s;    animation-delay: -6s;   }
+.planet-4 { animation-name: float-b; animation-duration: 9.5s;   animation-delay: -2s;   }
+.planet-5 { animation-name: float-a; animation-duration: 8s;    animation-delay: -5s;   }
+.planet-6 { animation-name: float-c; animation-duration: 10s;   animation-delay: -8s;   }
+.planet-7 { animation-name: float-a; animation-duration: 8.2s; animation-delay: -4s;   }
+
+/* la planète se fige légèrement quand on la survole */
+.planet-wrapper:hover {
+    animation-play-state: paused;
+}
+
+/* respecte les réglages d'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    .planet-wrapper {
+        animation: none;
+    }
+}
+
+
+/* =========================================================
+   ORBITES
+========================================================= */
+
+.orbit {
+    position: fixed;
+
+    border: 1px solid rgba(255,255,255,.035);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.orbit-1 {
+    width: 1000px;
+    height: 430px;
+
+    left: 50%;
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg);
+}
+
+.orbit-2 {
+    width: 750px;
+    height: 280px;
+
+    left: 50%;
+    top: 53%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(18deg);
+
+    opacity: .6;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    position: fixed;
+
+    bottom: 25px;
+
+    width: 100%;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+footer span {
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,.2);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    header {
+        padding-top: 45px;
+    }
+
+    .universe {
+        height: auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 55px 20px;
+
+        margin-top: 50px;
+
+        padding-bottom: 80px;
+    }
+
+    .planet-wrapper {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .planet {
+        width: 150px;
+        height: 150px;
+    }
+
+    .orbit {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    h1 {
+        font-size: 36px;
+    }
+
+    header p {
+        font-size: 12px;
+    }
+
+    .universe {
+        grid-template-columns: 1fr;
+    }
+
+    .planet {
+        width: 165px;
+        height: 165px;
+    }
+}
+
+/* =========================================================
+   ANIMAUX (2 chats + 1 lapin)
+========================================================= */
+
+.critters {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;   /* les liens restent cliquables */
+    z-index: 50;
+}
+
+.critter {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: calc(var(--size, 100px) * var(--k, 1));
+    height: calc(var(--size, 100px) * var(--k, 1));
+
+    transform: translate(-999px, -999px);
+    will-change: transform;
+}
+
+.critter-body {
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.critter img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .55));
+}
+
+.critter .fallback {
+    display: grid;
+    place-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: calc(var(--size, 100px) * var(--k, 1) * .8);
+    line-height: 1;
+}
+
+@media (max-width: 800px) {
+    :root { --k: .75; }
+}
