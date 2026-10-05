@@ -177,7 +177,7 @@ header p {
     position: relative;
 
     width: min(1100px, 90vw);
-    height: 650px;
+    height: 700px;
 
     margin: 20px auto 0;
 }
@@ -242,7 +242,10 @@ header p {
     right: 2%;
     bottom: 30%;
 }
-
+.planet-8 {
+    left: 36%;
+    bottom: 0;
+}
 
 /* =========================================================
    PLANÈTES
@@ -401,6 +404,15 @@ header p {
             #102021 75%
         );
 }
+.planet-gold {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #d8c06a,
+            #8a7230 40%,
+            #241d0d 75%
+        );
+}
 
 
 /* =========================================================
@@ -512,6 +524,7 @@ header p {
 .planet-5 { animation-name: float-a; animation-duration: 8s;    animation-delay: -5s;   }
 .planet-6 { animation-name: float-c; animation-duration: 10s;   animation-delay: -8s;   }
 .planet-7 { animation-name: float-a; animation-duration: 8.2s; animation-delay: -4s;   }
+.planet-8 { animation-name: float-b; animation-duration: 9s; animation-delay: -1s; }
 
 /* la planète se fige légèrement quand on la survole */
 .planet-wrapper:hover {
