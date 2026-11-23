@@ -205,47 +205,21 @@ header p {
         z-index .3s;
 }
 
-
 /* positions */
 
-.planet-1 {
-    left: 5%;
-    top: 25%;
-}
+.planet-1  { left: 6%;  top: 8%;  }
+.planet-2  { left: 40%; top: 4%;  }
+.planet-3  { left: 74%; top: 9%;  }
 
-.planet-2 {
-    left: 29%;
-    top: 5%;
-}
+.planet-5  { left: 2%;  top: 36%; }
+.planet-8  { left: 27%; top: 40%; }
+.planet-9  { left: 52%; top: 35%; }
+.planet-4  { left: 77%; top: 39%; }
 
-.planet-3 {
-    right: 8%;
-    top: 17%;
-}
-
-.planet-4 {
-    left: 14%;
-    bottom: 8%;
-}
-
-.planet-5 {
-    left: 45%;
-    top: 38%;
-}
-
-.planet-6 {
-    right: 20%;
-    bottom: 5%;
-}
-
-.planet-7 {
-    right: 2%;
-    bottom: 30%;
-}
-.planet-8 {
-    left: 36%;
-    bottom: 0;
-}
+.planet-10 { left: 10%; top: 70%; }
+.planet-11 { left: 34%; top: 66%; }
+.planet-6  { left: 58%; top: 71%; }
+.planet-7  { left: 82%; top: 67%; }
 
 /* =========================================================
    PLANÈTES
@@ -734,3 +708,4 @@ footer span {
 @media (max-width: 800px) {
     :root { --k: .75; }
 }
+
