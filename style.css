@@ -177,7 +177,7 @@ header p {
     position: relative;
 
     width: min(1100px, 90vw);
-    height: 700px;
+    height: 1000px;
 
     margin: 20px auto 0;
 }
@@ -385,6 +385,36 @@ header p {
             #d8c06a,
             #8a7230 40%,
             #241d0d 75%
+        );
+}
+
+.planet-rose {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #c78ab0,
+            #7a3f64 40%,
+            #25101c 75%
+        );
+}
+
+.planet-indigo {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #7f8fe0,
+            #3d4a99 40%,
+            #121731 75%
+        );
+}
+
+.planet-olive {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #a3b46a,
+            #5c6b2c 40%,
+            #1a2010 75%
         );
 }
 
@@ -708,4 +738,5 @@ footer span {
 @media (max-width: 800px) {
     :root { --k: .75; }
 }
+
 
